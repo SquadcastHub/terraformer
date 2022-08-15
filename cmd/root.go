@@ -38,53 +38,54 @@ func Execute() error {
 
 func providerImporterSubcommands() []func(options ImportOptions) *cobra.Command {
 	return []func(options ImportOptions) *cobra.Command{
-		// Major Cloud
-		newCmdGoogleImporter,
-		newCmdAwsImporter,
-		newCmdAzureImporter,
-		newCmdAliCloudImporter,
-		newCmdIbmImporter,
-		// Cloud
-		newCmdDigitalOceanImporter,
-		newCmdEquinixMetalImporter,
-		newCmdHerokuImporter,
-		newCmdLaunchDarklyImporter,
-		newCmdLinodeImporter,
-		newCmdOpenStackImporter,
-		newCmdTencentCloudImporter,
-		newCmdVultrImporter,
-		newCmdYandexImporter,
-		// Infrastructure Software
-		newCmdKubernetesImporter,
-		newCmdOctopusDeployImporter,
-		newCmdRabbitMQImporter,
-		// Network
-		newCmdCloudflareImporter,
-		newCmdFastlyImporter,
-		newCmdNs1Importer,
-		newCmdPanosImporter,
-		// VCS
-		newCmdAzureDevOpsImporter,
-		newCmdAzureADImporter,
-		newCmdGithubImporter,
-		newCmdGitLabImporter,
-		// Monitoring & System Management
-		newCmdDatadogImporter,
-		newCmdNewRelicImporter,
-		newCmdMackerelImporter,
-		newCmdGrafanaImporter,
-		newCmdPagerDutyImporter,
-		newCmdOpsgenieImporter,
+		// // Major Cloud
+		// newCmdGoogleImporter,
+		// newCmdAwsImporter,
+		// newCmdAzureImporter,
+		// newCmdAliCloudImporter,
+		// newCmdIbmImporter,
+		// // Cloud
+		// newCmdDigitalOceanImporter,
+		// newCmdEquinixMetalImporter,
+		// newCmdHerokuImporter,
+		// newCmdLaunchDarklyImporter,
+		// newCmdLinodeImporter,
+		// newCmdOpenStackImporter,
+		// newCmdTencentCloudImporter,
+		// newCmdVultrImporter,
+		// newCmdYandexImporter,
+		// // Infrastructure Software
+		// newCmdKubernetesImporter,
+		// newCmdOctopusDeployImporter,
+		// newCmdRabbitMQImporter,
+		// // Network
+		// newCmdCloudflareImporter,
+		// newCmdFastlyImporter,
+		// newCmdNs1Importer,
+		// newCmdPanosImporter,
+		// // VCS
+		// newCmdAzureDevOpsImporter,
+		// newCmdAzureADImporter,
+		// newCmdGithubImporter,
+		// newCmdGitLabImporter,
+		// // Monitoring & System Management
+		// newCmdDatadogImporter,
+		// newCmdNewRelicImporter,
+		// newCmdMackerelImporter,
+		// newCmdGrafanaImporter,
+		// newCmdPagerDutyImporter,
+		// newCmdOpsgenieImporter,
+		newCmdSquadcastImporter,
 		// Community
-		newCmdKeycloakImporter,
-		newCmdLogzioImporter,
-		newCmdCommercetoolsImporter,
-		newCmdMikrotikImporter,
-		newCmdXenorchestraImporter,
-		newCmdGmailfilterImporter,
-		newCmdVaultImporter,
-		newCmdOktaImporter,
-		newCmdAuth0Importer,
+		// newCmdKeycloakImporter,
+		// newCmdLogzioImporter,
+		// newCmdCommercetoolsImporter,
+		// newCmdMikrotikImporter,
+		// newCmdXenorchestraImporter,
+		// newCmdGmailfilterImporter,
+		// newCmdVaultImporter,
+		// newCmdOktaImporter,
+		// newCmdAuth0Importer,
 	}
 }
 
@@ -92,47 +93,48 @@ func providerGenerators() map[string]func() terraformutils.ProviderGenerator {
 	list := make(map[string]func() terraformutils.ProviderGenerator)
 	for _, providerGen := range []func() terraformutils.ProviderGenerator{
 		// Major Cloud
-		newGoogleProvider,
-		newAWSProvider,
-		newAzureProvider,
-		newAliCloudProvider,
-		newIbmProvider,
-		// Cloud
-		newDigitalOceanProvider,
-		newEquinixMetalProvider,
-		newFastlyProvider,
-		newHerokuProvider,
-		newLaunchDarklyProvider,
-		newLinodeProvider,
-		newNs1Provider,
-		newOpenStackProvider,
-		newTencentCloudProvider,
-		newVultrProvider,
-		// Infrastructure Software
-		newKubernetesProvider,
-		newOctopusDeployProvider,
-		newRabbitMQProvider,
-		// Network
-		newCloudflareProvider,
-		// VCS
-		newAzureDevOpsProvider,
-		newAzureADProvider,
-		newGitHubProvider,
-		newGitLabProvider,
-		// Monitoring & System Management
-		newDataDogProvider,
-		newNewRelicProvider,
-		newPagerDutyProvider,
-		// Community
-		newKeycloakProvider,
-		newLogzioProvider,
-		newCommercetoolsProvider,
-		newMikrotikProvider,
-		newXenorchestraProvider,
-		newGmailfilterProvider,
-		newVaultProvider,
-		newOktaProvider,
-		newAuth0Provider,
+		// newGoogleProvider,
+		// newAWSProvider,
+		// newAzureProvider,
+		// newAliCloudProvider,
+		// newIbmProvider,
+		// // Cloud
+		// newDigitalOceanProvider,
+		// newEquinixMetalProvider,
+		// newFastlyProvider,
+		// newHerokuProvider,
+		// newLaunchDarklyProvider,
+		// newLinodeProvider,
+		// newNs1Provider,
+		// newOpenStackProvider,
+		// newTencentCloudProvider,
+		// newVultrProvider,
+		// // Infrastructure Software
+		// newKubernetesProvider,
+		// newOctopusDeployProvider,
+		// newRabbitMQProvider,
+		// // Network
+		// newCloudflareProvider,
+		// // VCS
+		// newAzureDevOpsProvider,
+		// newAzureADProvider,
+		// newGitHubProvider,
+		// newGitLabProvider,
+		// // Monitoring & System Management
+		newSquadcastProvider,
+		// newDataDogProvider,
+		// newNewRelicProvider,
+		// newPagerDutyProvider,
+		// // Community
+		// newKeycloakProvider,
+		// newLogzioProvider,
+		// newCommercetoolsProvider,
+		// newMikrotikProvider,
+		// newXenorchestraProvider,
+		// newGmailfilterProvider,
+		// newVaultProvider,
+		// newOktaProvider,
+		// newAuth0Provider,
 	} {
 		list[providerGen().GetName()] = providerGen
 	}

@@ -1,6 +1,6 @@
 module github.com/GoogleCloudPlatform/terraformer
 
-go 1.19
+go 1.18
 
 require (
 	cloud.google.com/go v0.100.2 // indirect
@@ -148,7 +148,7 @@ require (
 	github.com/packethost/packngo v0.9.0
 	github.com/pkg/errors v0.9.1
 	github.com/ryanuber/go-glob v1.0.0 // indirect
-	github.com/spf13/cobra v1.1.1
+	github.com/spf13/cobra v1.5.0
 	github.com/spf13/pflag v1.0.5
 	github.com/tencentcloud/tencentcloud-sdk-go v3.0.233+incompatible
 	github.com/tencentyun/cos-go-sdk-v5 v0.7.34
@@ -156,7 +156,7 @@ require (
 	github.com/xanzy/go-gitlab v0.50.2
 	github.com/yandex-cloud/go-genproto v0.0.0-20220314102905-1acaee8ca7eb
 	github.com/yandex-cloud/go-sdk v0.0.0-20220314105123-d0c2a928feb6
-	github.com/zclconf/go-cty v1.8.4
+	github.com/zclconf/go-cty v1.10.0
 	github.com/zorkian/go-datadog-api v2.30.0+incompatible
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
 	golang.org/x/text v0.3.7
@@ -344,14 +344,15 @@ require (
 require github.com/PuerkitoBio/rehttp v1.0.0 // indirect
 
 require (
+	cloud.google.com/go/cloudbuild v1.2.0
 	cloud.google.com/go/cloudtasks v1.3.0
 	cloud.google.com/go/iam v0.3.0
 	cloud.google.com/go/monitoring v1.4.0
+	github.com/joho/godotenv v1.3.0
 	github.com/manicminer/hamilton v0.44.0
 )
 
 require (
-	cloud.google.com/go/cloudbuild v1.2.0 // indirect
 	cloud.google.com/go/compute v1.3.0 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect

@@ -18,8 +18,10 @@ func (s *SquadcastService) generateRequest(uri string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	// req.SetBasicAuth(s.Args["username"].(string), s.Args["password"].(string))
+	req.Header.Set("Authorization", "Bearer "+s.Args["accessToken"].(string))
+
 	resp, err := client.Do(req)
+
 	if err != nil {
 		return nil, err
 	}

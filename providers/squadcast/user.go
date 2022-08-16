@@ -24,8 +24,8 @@ func (g UserGenerator) createResources(users Users) []terraformutils.Resource {
 		resources = append(resources, terraformutils.NewSimpleResource(
 			user.Name,
 			"user_"+(user.Name),
-			"rabbitmq_user",
-			"rabbitmq",
+			"squadcast_user",
+			"squadcast",
 			UserAllowEmptyValues,
 		))
 	}

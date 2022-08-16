@@ -5,12 +5,12 @@ import (
 	"os"
 
 	"github.com/GoogleCloudPlatform/terraformer/terraformutils"
-	"github.com/zclconf/go-cty/cty"
 )
 
 type SquadcastProvider struct {
 	terraformutils.Provider
-	AccessToken string
+	accesstoken  string
+	refreshtoken string
 }
 
 func (p *SquadcastProvider) Init(args []string) error {
@@ -20,14 +20,19 @@ func (p *SquadcastProvider) Init(args []string) error {
 	// }
 
 	if accessToken := os.Getenv("SQUADCAST_ACCESS_TOKEN"); accessToken != "" {
-		p.AccessToken = os.Getenv("SQUADCAST_ACCESS_TOKEN")
+		p.accesstoken = os.Getenv("SQUADCAST_ACCESS_TOKEN")
 	}
-	// if args[0] != "" {
-	// 	p.AccessToken = args[0]
-	// }
-	if p.AccessToken == "" {
+	if p.accesstoken == "" {
 		return errors.New("requred Access Token missing")
 	}
+
+	if refreshToken := os.Getenv("SQUADCAST_REFRESH_TOKEN"); refreshToken != "" {
+		p.refreshtoken = os.Getenv("SQUADCAST_REFRESH_TOKEN")
+	}
+	if p.refreshtoken == "" {
+		return errors.New("requred refresh Token missing")
+	}
+
 	return nil
 }
 
@@ -41,21 +46,23 @@ func (p *SquadcastProvider) InitService(serviceName string, verbose bool) error 
 	p.Service.SetVerbose(verbose)
 	p.Service.SetProviderName(p.GetName())
 	p.Service.SetArgs(map[string]interface{}{
-		"accessToken": p.AccessToken,
+		"accessToken":   p.accesstoken,
+		"refresh_token": p.refreshtoken,
 	})
 
 	return nil
 }
 
-func (p *SquadcastProvider) GetConfig() cty.Value {
-	return cty.ObjectVal(map[string]cty.Value{
-		"accessToken": cty.StringVal(p.AccessToken),
-	})
-}
+// func (p *SquadcastProvider) GetConfig() cty.Value {
+// 	return cty.ObjectVal(map[string]cty.Value{
+// 		"roshan":      cty.StringVal("fdfdfdfgd"),
+// 		"accesstoken": cty.StringVal(p.accesstoken),
+// 	})
+// }
 
-func (p *SquadcastProvider) GetBasicConfig() cty.Value {
-	return p.GetConfig()
-}
+// func (p *SquadcastProvider) GetBasicConfig() cty.Value {
+// 	return p.GetConfig()
+// }
 
 func (p *SquadcastProvider) GetProviderData(arg ...string) map[string]interface{} {
 	return map[string]interface{}{}
